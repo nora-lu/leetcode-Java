@@ -1,0 +1,2 @@
+# leetcode
+Have fun coding!
