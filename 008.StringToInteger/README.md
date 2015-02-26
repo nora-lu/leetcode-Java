@@ -17,3 +17,5 @@ for the smallest number, –2147483648 (–231).
 
 运用Character的方法：
 getNumericValue(int codePoint), isDigit(char ch), isWhitespace(char ch)
+
+随时注意检查index没有超出string长度！
