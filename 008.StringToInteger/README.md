@@ -16,6 +16,4 @@ when the current digit is greater than or equal to 8. Remember to also consider 
 for the smallest number, –2147483648 (–231).
 
 运用Character的方法：
-getNumericValue(int codePoint)
-isDigit(char ch)
-isWhitespace(char ch)
+getNumericValue(int codePoint), isDigit(char ch), isWhitespace(char ch)
