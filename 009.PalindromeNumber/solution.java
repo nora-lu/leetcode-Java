@@ -8,6 +8,6 @@ public class Solution {
             rev = rev * 10 + x % 10;
             x = x / 10;
         }
-        return (int)rev == xCopy;
+        return rev == xCopy;
     }
 }
