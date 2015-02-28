@@ -1,10 +1,9 @@
 public class Solution {
     public int removeElement(int[] A, int elem) {
-        int newLen = -1, i = 0;
-        while (i < A.length) {
-            if (A[i] != elem) A[++newLen] = A[i];
-            i++;
+        int newLen = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] != elem) A[newLen++] = A[i];
         }
-        return newLen + 1;
+        return newLen;
     }
 }
