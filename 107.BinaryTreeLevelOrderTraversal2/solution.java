@@ -1,30 +1,3 @@
-/**
- * Definition for binary tree
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
-public class Solution {
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> list = new ArrayList<List<Integer>>();
-        if (root == null) return list;
-        
-        Queue<TreeNode> q = new LinkedList<TreeNode>();
-        q.offer(root);
-        
-        while (q.size() != 0) {
-            int size = q.size(); // because size of queue is changing
-            List<Integer> subList = new ArrayList<Integer>();
-            for (int i = 0; i < size; i++) {
-                if (q.peek().left != null) q.offer(q.peek().left);
-                if (q.peek().right != null) q.offer(q.peek().right);
-                subList.add(q.poll().val);
-            }
-            list.add(0, subList);
-        }
-        return list;
-    }
-}
+我的做法：和102题几乎一样，除了把subList加到list时候不加到最后，而是加到开头。注意LinkedList有addFirst方法，但是本题需要List interface，而List没有addFirst这个方法。List有add(index, element)这个方法，Inserts the specified element at the specified position in this list (optional operation). Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices). 所以即使List现在是空的，add(0, element)是可以的。特别注意这些方法对index参数范围的限制。
+
+
