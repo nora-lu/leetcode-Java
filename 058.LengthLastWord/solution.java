@@ -9,14 +9,12 @@ public class Solution {
         // }
         // return res;
         
-        int res = 0, i = 0;
-        for (i = s.length() - 1; i >= 0; i--) {
-            if (s.charAt(i) != ' ') break;
-        }
-        while (i >= 0) {
+        int res = 0, i = s.length() - 1;
+        while (i >= 0 && s.charAt(i) == ' ') i--;
+        
+        for ( ; i >= 0; i--) {
             if (s.charAt(i) != ' ') res++;
-            else break;
-            i--;
+            else return res;
         }
         return res;
     }
