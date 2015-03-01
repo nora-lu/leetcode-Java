@@ -7,3 +7,5 @@
 根节点向下迭代，判断 root.
 左右子节点分别迭代，判断 left && right.
 栈空的时候几乎永远是进行迭代过程（按某种方向性，往深，往右等等），栈不空的时候几乎都是在回溯。
+
+参考：https://oj.leetcode.com/discuss/18354/recursive-and-non-recursive-solutions-in-java
