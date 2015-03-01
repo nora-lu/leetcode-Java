@@ -16,3 +16,5 @@ List<List> list = new ArrayList<List>(); 然后再继续specifiy内层List的imp
 错误做法：List<List> list1 = new ArrayList<ArrayList>();
 
 参考：http://docs.oracle.com/javase/tutorial/java/generics/inheritance.html
+
+思考：写recursion的解法
