@@ -12,18 +12,22 @@
 public class Solution {
     public ListNode insertionSortList(ListNode head) {
         if (head == null || head.next == null) return head;
-        ListNode newHead = new ListNode(0);
         
-        while (head != null) {
-            ListNode n = newHead;
-            while (n.next != null && n.next.val < head.val) {
-                n = n.next;
+        ListNode dummy = new ListNode(0); //new starter of the sorted list, but a dummy node
+        ListNode pre = dummy; // //insert node between pre and pre.next
+        ListNode current = head;
+        while (current != null) {
+            pre = dummy;
+            //find the right place to insert
+            while (pre.next != null && pre.next.val < current.val) {
+                pre = pre.next;
             }
-            ListNode old = head;
-            head = head.next;
-            old.next = n.next;
-            n.next = old;
+            //insert between pre and pre.next
+            ListNode old = current;
+            current = current.next;
+            old.next = pre.next;
+            pre.next = old;
         }
-        return newHead.next;
+        return dummy.next;
     }
 }
