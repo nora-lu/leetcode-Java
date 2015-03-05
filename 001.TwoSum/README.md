@@ -1,1 +1,2 @@
-
+用Java Hashtable，注意contains指value，containsKey才是指key
+或者用HashMap
