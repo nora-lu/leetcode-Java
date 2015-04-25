@@ -1,4 +1,6 @@
 /**
+ * 不符合constant extra space！
+/**
  * Definition for binary tree with next pointer.
  * public class TreeLinkNode {
  *     int val;
