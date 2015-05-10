@@ -18,6 +18,9 @@ public class Solution {
         
         stack.push(root);
         while (!stack.empty()) {
+            /**
+             * We use a prev variable to keep track of the previously-traversed node. Let’s assume curr is the current node                * that’s on top of the stack. When prev is curr‘s parent, we are traversing down the tree. In this case, we try               * to traverse to curr‘s left child if available (ie, push left child to the stack). If it is not available, we                * look at curr‘s right child. If both left and right child do not exist (ie, curr is a leaf node), we print                   * curr‘s value and pop it off the stack.
+             * /
             cur = stack.peek();
             if (prev == null || prev.left == cur || prev.right == cur) { // traverse down the tree
                 if (cur.left != null) { stack.push(cur.left); }
