@@ -9,6 +9,7 @@
  */
 public class Solution {
     public boolean isValidBST(TreeNode root) {
+        // be careful with node of Integer.MIN/MAX Value
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
     
