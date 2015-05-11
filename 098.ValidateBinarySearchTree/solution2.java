@@ -4,7 +4,7 @@ public class Solution {
         
         Stack<TreeNode> stack = new Stack<>();
         TreeNode cur = root;
-        long prev_value = Long.MIN_VALUE;
+        TreeNode prev = null;
         
         while (cur != null || !stack.empty()) {
             while (cur != null) {
@@ -12,8 +12,8 @@ public class Solution {
                 cur = cur.left;
             }
             cur = stack.pop();
-            if (cur.val <= prev_value) { return false; }
-            prev_value = cur.val;
+            if (prev != null && cur.val <= prev.val) { return false; }
+            prev = cur;
             cur = cur.right;
         }
         return true;
