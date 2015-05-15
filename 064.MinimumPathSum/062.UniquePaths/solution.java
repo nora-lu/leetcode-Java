@@ -5,7 +5,7 @@ public class Solution {
         num_paths[1] = 1;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                num_paths[j + 1] = num_paths[j] + num_paths[j + 1];
+                num_paths[j + 1] += num_paths[j];
             }
         }
         return num_paths[n];
