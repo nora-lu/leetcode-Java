@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class FindMin {
 	public static int findMin(int[] nums) {
 		if (nums == null) { return Integer.MIN_VALUE; }
