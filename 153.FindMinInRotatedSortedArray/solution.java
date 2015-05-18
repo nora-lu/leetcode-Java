@@ -1,6 +1,8 @@
-public class Solution {
-    public int findMin(int[] nums) {
-        if (nums == null) { return Integer.MIN_VALUE; }
+import java.util.*;
+
+public class FindMin {
+	public static int findMin(int[] nums) {
+		if (nums == null) { return Integer.MIN_VALUE; }
 
 		int lo = 0, hi = nums.length - 1;
 		while (lo < hi) {
@@ -17,5 +19,13 @@ public class Solution {
 			}
 		}
 		return nums[lo];
-    }
+	}
+
+	public static void main(String[] args) {
+		int[] test = new int[args.length];
+		for (int i = 0; i < args.length; i++) {
+			test[i] = Integer.valueOf(args[i]);
+		}
+		System.out.println(findMin(test));
+	}
 }
