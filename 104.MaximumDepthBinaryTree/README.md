@@ -2,4 +2,8 @@
 
 解法二：不用递归。用DFS。
 
-参考：http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=graphsDataStrucs2
+参考：
+
+http://articles.leetcode.com/2010/04/maximum-height-of-binary-tree.html
+
+https://www.topcoder.com/community/data-science/data-science-tutorials/introduction-to-graphs-and-their-data-structures-section-2/
