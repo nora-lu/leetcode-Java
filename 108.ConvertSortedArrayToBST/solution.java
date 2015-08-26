@@ -9,18 +9,16 @@
  */
 public class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
+        if (nums == null || nums.length == 0) { return null; }
         return sortedArrayToBST(nums, 0, nums.length - 1);
     }
     
-    private TreeNode sortedArrayToBST(int[] nums, int start, int end) {
-        if (start > end) { return null; }
-        if (start == end) {
-            TreeNode n = new TreeNode(nums[start]);
-            return n;
-        }
-        TreeNode root = new TreeNode(nums[start + (end - start) / 2]);
-        root.left = sortedArrayToBST(nums, start, start + (end - start) / 2 - 1);
-        root.right = sortedArrayToBST(nums, start + (end - start) / 2 + 1, end);
-        return root;
+    private TreeNode sortedArrayToBST(int[] nums, int lo, int hi) {
+        if (lo > hi) { return null; }
+        int mid = lo + (hi - lo) / 2;
+        TreeNode n = new TreeNode(nums[mid]);
+        n.left = sortedArrayToBST(nums, lo, mid - 1);
+        n.right = sortedArrayToBST(nums, mid + 1, hi);
+        return n;
     }
 }
