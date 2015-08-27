@@ -1,4 +1,5 @@
 public class Solution {
+    // DP solution
     public int maxSubArray(int[] nums) {
         if (nums == null || nums.length == 0) { return 0; }
 
