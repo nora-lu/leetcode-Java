@@ -7,8 +7,7 @@ public class Solution {
             fast = digitSquareSum(fast);
             fast = digitSquareSum(fast);
         } while (slow != fast);
-        if (slow == 1) { return true; }
-        return false;
+        return slow == 1;
     }
     
     private int digitSquareSum(int n) {
