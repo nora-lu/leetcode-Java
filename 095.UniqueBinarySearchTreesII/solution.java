@@ -16,8 +16,6 @@ public class Solution {
         List<TreeNode> res = new ArrayList<>();
         if (start > end) {
             res.add(null);
-        } else if (start == end) {
-            res.add(new TreeNode(start));
         } else {
             for (int i = start; i <= end; i++) {
                 List<TreeNode> left = generateBST(start, i - 1);
