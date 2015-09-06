@@ -1,4 +1,7 @@
 public class Solution {
+    /**
+     *  O(MlogN) solution.
+     */
     public boolean searchMatrix(int[][] matrix, int target) {
         if (matrix == null) { return false; }
         int m = matrix.length, n = matrix[0].length;
