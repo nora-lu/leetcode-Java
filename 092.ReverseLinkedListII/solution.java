@@ -16,15 +16,13 @@ public class Solution {
         for (int i = 0; i < m - 1; i++) {
             prev = prev.next;
         }
-        ListNode cur = prev.next, next = cur.next, end = cur;
+         ListNode start = prev.next, next = start.next;
         for (int i = m; i < n; i++) {
-            ListNode tmp = next.next;
-            next.next = cur;
-            cur = next;
-            next = tmp;
+            start.next = next.next;
+            next.next = prev.next;
+            prev.next = next;
+            next = start.next;
         }
-        prev.next = cur;
-        end.next = next;
         return dummy.next;
     }
 }
