@@ -9,6 +9,9 @@ public class Solution {
         while (i >= 0 || j >= 0 || carry == 1) {
             aByte = (i >= 0) ? Character.getNumericValue(a.charAt(i--)) : 0;
             bByte = (j >= 0) ? Character.getNumericValue(b.charAt(j--)) : 0;
+            /**
+             *  This is clever. 
+             */
             int result = aByte ^ bByte ^ carry;
             carry = aByte + bByte + carry >= 2 ? 1 : 0;
             sb.append(result);
