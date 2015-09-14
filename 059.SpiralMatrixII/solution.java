@@ -5,7 +5,7 @@ public class Solution {
         int top = 0, bottom = n - 1;
         int left = 0, right = n - 1;
         int k = 1;
-        while (left <= right && top <= bottom) {
+        while (k <= n * n) {
             for (int i = left; i <= right; i++) {
                 res[top][i] = k++;
             }
