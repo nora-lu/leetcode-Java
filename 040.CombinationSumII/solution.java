@@ -13,7 +13,7 @@ public class Solution {
         else {
             int i = start;
             while (i < candidates.length) {
-                if (i == start || candidates[i] != candidates[i - 1]) {
+                if (i == start || candidates[i] != candidates[i - 1]) { // Avoid duplicates
                     int newTarget = target - candidates[i];
                     if (newTarget >= 0) {
                         List<Integer> copy = new ArrayList<>(list);
