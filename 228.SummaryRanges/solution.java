@@ -1,7 +1,7 @@
 public class Solution {
     public List<String> summaryRanges(int[] nums) {
         List<String> summary = new ArrayList<>();
-        if (nums == null || nums.length == 0) { return summary; }
+        if (nums == null) { return summary; }
         int i = 0;
         while (i < nums.length) {
             int j = i;
