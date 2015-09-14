@@ -8,16 +8,15 @@ public class Solution {
     }
     
     private void helper(int k, int sum, int start) {
-        if (sum == 0 && k == 0) {
+        if (sum == 0 && list.size() == k) {
             res.add(new ArrayList<Integer>(list));
         } else {
             for (int i = start; i <= 9; i++) {
-                int newSum = sum - i;
-                if (newSum >= 0) {
-                    list.add(i);
-                    helper(k - 1, newSum, i + 1);
-                    list.remove(list.size() - 1);
-                } else { break; }
+               if (sum - i >= 0) {
+                   list.add(i);
+                   helper(k, sum - i, i + 1);
+                   list.remove(list.size() - 1);
+               } else { break; }
             }
         }
     }
