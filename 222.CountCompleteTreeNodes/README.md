@@ -1,4 +1,4 @@
-# Recursion
+# Recursion https://leetcode.com/discuss/38930/concise-java-solutions-o-log-n-2
 ## The height of a tree can be found by just going left. Let a single node tree have height 0. Find the height h of the whole tree. If the whole tree is empty, i.e., has height -1, there are 0 nodes.
 
 Otherwise check whether the height of the right subtree is just one less than that of the whole tree, meaning left and right subtree have the same height.
