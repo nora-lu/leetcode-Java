@@ -1,6 +1,6 @@
 public class H-IndexII {
   public int hIndex(int[] citations) {
-    if (citations == null || citations.length == 0) { return 0; }
+    if (citations == null) { return 0; }
     int len = citations.length;
     int lo = 0, hi = len - 1;
     while (lo <= hi) {
