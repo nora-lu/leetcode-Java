@@ -1,4 +1,6 @@
-
+/**
+ * Use a Priority Queue. O(NlogN) time.
+ */
 public class MeetingRoomsII {
   public int minRooms(Interval[] intervals) {
     if (intervals == null || intervals.length == 0) { return 0; }
