@@ -10,7 +10,7 @@
 public class Solution {
     public int minMeetingRooms(Interval[] intervals) {
         if (intervals == null || intervals.length == 0) { return 0; }
-        // sort intervals by finishing time
+        // sort intervals by start time
         Arrays.sort(intervals, new Comparator<Interval>() {
             public int compare(Interval i1, Interval i2) {
                 return i1.start > i2.start ? 1 : i1.start < i2.start ? -1 : 0;
