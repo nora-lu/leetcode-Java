@@ -5,11 +5,9 @@ public class ThreeSumSmaller {
     Arrays.sort(nums);
     int res = 0;
     for (int i = 0; i < nums.length; i++) {
-      int newTarget = target - nums[i];
       int lo = i + 1, hi = nums.length - 1;
       while (lo < hi) {
-        int sum = nums[lo] + nums[hi];
-        if (sum >= newTarget) {
+        if (nums[i] + nums[lo] + nums[hi] >= target) {
           while (lo < hi && nums[hi] == nums[hi - 1]) { hi--; }
           hi--;
         } else {
