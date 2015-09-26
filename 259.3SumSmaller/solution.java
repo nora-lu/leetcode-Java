@@ -1,0 +1,23 @@
+public class ThreeSumSmaller {
+  public int threeSumSmaller(int[] nums, int target) {
+    if (nums == null) { return 0; }
+    
+    Arrays.sort(nums);
+    int res = 0;
+    for (int i = 0; i < nums.length; i++) {
+      int newTarget = target - nums[i];
+      int lo = i + 1, hi = nums.length - 1;
+      while (lo < hi) {
+        int sum = nums[lo] + nums[hi];
+        if (sum >= newTarget) {
+          while (lo < hi && nums[hi] == nums[hi - 1]) { hi--; }
+          hi--;
+        } else {
+          res += (hi - lo);  // nums[lo] + nums[k] < newTarget (lo < k <= hi)
+          lo++;
+        }
+      }
+    }
+    return res;
+  }
+}
