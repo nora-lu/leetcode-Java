@@ -11,7 +11,7 @@ public class ThreeSumSmaller {
           while (lo < hi && nums[hi] == nums[hi - 1]) { hi--; }
           hi--;
         } else {
-          res += (hi - lo);  // nums[lo] + nums[k] < newTarget (lo < k <= hi)
+          res += (hi - lo);  // all k's: nums[i] + nums[lo] + nums[k] < target (lo < k <= hi)
           lo++;
         }
       }
