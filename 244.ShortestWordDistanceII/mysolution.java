@@ -14,7 +14,9 @@ public class WordDistance {
   }
  
 
-
+  /**
+   * Here is O(m * n) time.
+   */
   public int shortest(String word1, String word2) {
     int min = Integer.MAX_VALUE;
     for (int i : map.get(word1)) {
