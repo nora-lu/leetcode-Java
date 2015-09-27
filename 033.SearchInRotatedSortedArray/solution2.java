@@ -11,7 +11,10 @@ public class SearchInRotatedSortedArray {
     }
     return -1;
   }
-
+  
+  /**
+   * General approach to find the index of smallest element in a rotated array.
+   */
   private int findMinIdx(int[] nums) {
     int lo = 0, hi = nums.length - 1;
     while (lo < hi) {
