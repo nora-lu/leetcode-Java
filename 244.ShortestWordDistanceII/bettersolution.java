@@ -13,6 +13,9 @@ public class WordDistance {
     }
   }
  
+  /**
+   * Use "SORTED" property of list1, list2. O(m + n) time.
+   */
   public int shortest(String word1, String word2) {
     int min = Integer.MAX_VALUE;
     List<Integer> list1 = map.get(word1);
