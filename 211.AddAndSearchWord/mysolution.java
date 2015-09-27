@@ -25,6 +25,9 @@ public class WordDictionary {
 
   private boolean search(String word, TrieNode n) {
     TrieNode tmp = n;
+    /**
+     * 注意这里的base case返回值
+     */
     if (word == null || word.equals("")) { return tmp.isWord; }
     for (int i = 0; i < word.length(); i++) {
       char c = word.charAt(i);
