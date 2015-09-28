@@ -18,4 +18,15 @@ public class ReverseWordsII {
       s[hi + lo - i] = tmp;
     }
   }
+  
+  // another way to reverse a string
+  private void reverse(char[] s, int lo, int hi) {
+  while (lo < hi) {
+    char c = s[lo];
+    s[lo] = s[hi];
+    s[hi] = c;
+    lo++; hi--;
+  }
+}
+
 }
