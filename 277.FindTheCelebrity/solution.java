@@ -23,8 +23,7 @@ public class Solution extends Relation {
         // test
         for (int i = 0; i < n; i++) {
             if (i != candidate && (!knows(i, candidate) || knows(candidate, i))) {
-                candidate = -1;
-                break;
+                return -1;
             }
         }
         return candidate;
