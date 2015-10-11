@@ -25,6 +25,9 @@ public class Solution {
         q.offer(beginWord);
         visited.add(beginWord);
         
+        /**
+         * Another technique to tell different levels is to add a NULL at the end of each level.
+         */
         int level = 0;
         while (!q.isEmpty()) {
             int size = q.size();
