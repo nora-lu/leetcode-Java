@@ -29,7 +29,7 @@ public class Solution {
             }
             if (end == null) { break; }
             start = prev.next;
-            while (prev.next != end) {
+            while (prev.next != end) {  // move prev.next to end.next each time until fully reversed
                 tmp = prev.next;
                 prev.next = tmp.next;
                 tmp.next = end.next;
