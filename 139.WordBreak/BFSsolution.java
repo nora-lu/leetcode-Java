@@ -1,3 +1,13 @@
+/* Given a string s and a dictionary of words dict, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
+
+For example, given
+s = "leetcode",
+dict = ["leet", "code"].
+
+Return true because "leetcode" can be segmented as "leet code". */
+
+/* 思路：每个node是某个单词在s中出现的第一个字符位置index */
+
 public class Solution {
   public boolean wordBreak(String s, Set<String> wordDict) {
     if (s == null) { return true; }
