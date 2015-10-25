@@ -14,5 +14,18 @@ public class Solution {
             prevNo = curNo;
         }
         return Math.max(prevYes, prevNo);
+        
+        
+        
+        
+//   if (nums == null || nums.length == 0) { return 0; }
+//   int yesPrev = 0, noPrev = 0;
+//   for (int i = 0; i < nums.length; i++) {
+//     int tmp = yesPrev;
+//     yesPrev = noPrev + nums[i];  // rob house i
+//     noPrev = Math.max(tmp, noPrev);
+//   }
+//   return Math.max(yesPrev, noPrev);
+
     }
 }
