@@ -9,8 +9,7 @@
  */
 public class Solution {
     public boolean isBalanced(TreeNode root) {
-        if (checkHeight(root) == -1) return false;
-        else return true;
+        return checkHeight(root) >= 0;
     }
     
     private int checkHeight(TreeNode n) {
@@ -25,7 +24,6 @@ public class Solution {
         if (right == -1) return -1;
         
         // check if current node is balanced
-        if (Math.abs(left - right) > 1) return -1;
-        else return Math.max(left, right) + 1;
+        return Math.abs(left - right) > 1 ? -1 : Math.max(left, right) + 1;
     }
 }
