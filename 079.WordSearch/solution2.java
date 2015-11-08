@@ -15,7 +15,6 @@ public class Solution {
         if (idx == word.length()) { return true; }
         if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] == '*') { return false; }
         
-        boolean ret = false;
         if (word.charAt(idx) == board[i][j]) {
             char tmp = board[i][j];
             board[i][j] = '*';
@@ -23,10 +22,10 @@ public class Solution {
                 search(board, word, idx + 1, i + 1, j) ||
                 search(board, word, idx + 1, i, j - 1) ||
                 search(board, word, idx + 1, i, j + 1)) {
-                ret = true;
+                return true;
             }
             board[i][j] = tmp;
         }
-        return ret;
+        return false;
     }
 }
