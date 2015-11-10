@@ -1,31 +1,34 @@
 public class Solution {
-    private boolean[] visited;  // default to false
-    
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        if (prerequisites == null || prerequisites.length == 0) { return true; }
+        if (numCourses == 0 || prerequisites == null || prerequisites.length == 0) { return true; }
         
-        visited = new boolean[numCourses];
-        
-        // save graph
-        ArrayList[] graph = new ArrayList[numCourses];
-        for (int i = 0; i < numCourses; i++) { graph[i] = new ArrayList(); }
-        for (int i = 0; i < prerequisites.length; i++) {
-            graph[prerequisites[i][1]].add(prerequisites[i][0]);  // prereq points to the course to take
+        int len = prerequisites.length;
+        int[] numPrereq = new int[numCourses];  // record number of prereq for each course
+        for (int i = 0; i < len; i++) {
+            numPrereq[prerequisites[i][0]]++;
         }
         
+        Queue<Integer> q = new LinkedList<>();
+        int numNoPre = 0;
         for (int i = 0; i < numCourses; i++) {
-            if (!dfs(graph, i)) { return false; }
+            if (numPrereq[i] == 0) {  // add courses with no prereq to queue
+                q.offer(i); 
+                numNoPre++;
+            }   
         }
-        return true;
-    }
-    
-    private boolean dfs(ArrayList[] graph, int course) {
-        if (visited[course]) { return false; }
-        visited[course] = true;
-        for (int i = 0; i < graph[course].size(); i++) {
-            if (!dfs(graph, (int)graph[course].get(i))) { return false; }
+        
+        while (!q.isEmpty()) {
+            int course = q.poll();
+            for (int i = 0; i < len; i++) {  // find another course which needs "course" as prereq
+                if (prerequisites[i][1] == course) {
+                    numPrereq[prerequisites[i][0]]--;
+                    if (numPrereq[prerequisites[i][0]] == 0) {
+                        numNoPre++;
+                        q.offer(prerequisites[i][0]);
+                    }
+                }
+            }
         }
-        visited[course] = false;
-        return true;
+        return numNoPre == numCourses;
     }
 }
