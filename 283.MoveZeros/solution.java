@@ -1,15 +1,20 @@
 public class MoveZeros {
-  public void moveZeros(int[] nums) {
-    if (nums == null) { return; }
-    for (int i = 0; i < nums.length; i++) {
-      if (nums[i] == 0) {
-        int j = i + 1;
-        while (j < nums.length && nums[j] == 0) { j++; }
-        if (j < nums.length) {  // swap i, j
-          nums[i] = nums[j];
-          nums[j] = 0;
+  public void moveZeroes(int[] nums) {
+        if (nums == null || nums.length < 2) { return; }
+        int nonZero = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                if (i != nonZero) {
+                    swap(nums, i, nonZero);    
+                }
+                nonZero++;
+            }
         }
-      }
     }
-  }
+    
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
 }
