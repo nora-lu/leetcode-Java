@@ -4,7 +4,7 @@ public class MoveZeros {
         int nonZero = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
-                if (i != nonZero) {
+                if (nums[i] != nums[nonZero]) {
                     swap(nums, i, nonZero);    
                 }
                 nonZero++;
