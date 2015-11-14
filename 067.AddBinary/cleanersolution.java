@@ -14,8 +14,9 @@ public class Solution {
         for (i = a.length() - 1, j = b.length() - 1; i >= 0 || j >= 0 || carry == 1; i--, j--) {
             int digitA = (i >= 0) ? (a.charAt(i) - '0') : 0;
             int digitB = (j >= 0) ? (b.charAt(j) - '0') : 0;
-            sb.append(digitA ^ digitB ^ carry);
-            carry = (digitA + digitB + carry) >= 2 ? 1 : 0;
+            int sum = digitA + digitB + carry;
+            sb.append((sum) % 2);
+            carry = sum / 2;
         }
         return sb.reverse().toString();
     }
