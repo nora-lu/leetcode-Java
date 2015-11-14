@@ -1,6 +1,6 @@
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        java.util.Hashtable<Integer, Integer> table = new java.util.Hashtable<Integer, Integer>();
+        Map<Integer, Integer> table = new HashMap<>();
         int[] res = new int[2];
         for (int i = 0; i < numbers.length; i++) {
             if (table.containsKey(target - numbers[i])) {
