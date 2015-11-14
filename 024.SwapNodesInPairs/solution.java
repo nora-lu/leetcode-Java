@@ -8,23 +8,17 @@
  */
 public class Solution {
     public ListNode swapPairs(ListNode head) {
-        if (head == null) { return head; }
+        if (head == null || head.next == null) { return head; }
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        
-        ListNode prev = dummy;
-        ListNode next = head.next;
-        while (next != null) {
-            ListNode tmp = next.next;
-            prev.next = next;
-            next.next = head;
-            head.next = tmp;
-            prev = head;
-            if (prev.next == null || prev.next.next == null) { break; }
-            else {
-                head = head.next;
-                next = head.next;
-            }
+        ListNode prev = dummy, cur = head;
+        while (cur != null && cur.next != null) {
+            ListNode next = cur.next;
+            cur.next = next.next;  // delete next node
+            next.next = prev.next;  // insert next at prev.next position
+            prev.next = next;  
+            prev = cur;
+            cur = cur.next;
         }
         return dummy.next;
     }
