@@ -1,28 +1,24 @@
 public class Solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> ret = new ArrayList<>();
+        if (candidates == null || candidates.length == 0) { return ret; }
         Arrays.sort(candidates);
-        List<List<Integer>> res = new ArrayList<>();
-        helper(candidates, 0, target, new ArrayList<Integer>(), res);
-        return res;
+        backtrack(candidates, target, 0, new ArrayList<Integer>(), ret);
+        return ret;
     }
     
-    private void helper(int[] candidates, int start, int target, List<Integer> list, List<List<Integer>> res) {
+    private void backtrack(int[] candidates, int target, int start, List<Integer> comb, List<List<Integer>> ret) {
         if (target == 0) {
-            res.add(list);
+            ret.add(new ArrayList<Integer>(comb));
+            return;
         }
-        else {
-            int i = start;
-            while (i < candidates.length) {
-                if (i == start || candidates[i] != candidates[i - 1]) { // Avoid duplicates
-                    int newTarget = target - candidates[i];
-                    if (newTarget >= 0) {
-                        List<Integer> copy = new ArrayList<>(list);
-                        copy.add(candidates[i]);
-                        helper(candidates, i + 1, newTarget, copy, res);
-                    } else { break; }
-                }
-                i++;
-            }
+        for (int i = start; i < candidates.length; i++) {
+            if (i != start && candidates[i] == candidates[i - 1]) { continue; }
+            if (candidates[i] <= target) {
+                comb.add(candidates[i]);
+                backtrack(candidates, target - candidates[i], i + 1, comb, ret);
+                comb.remove(comb.size() - 1);
+            } else { break; }
         }
     }
 }
