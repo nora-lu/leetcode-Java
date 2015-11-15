@@ -1,24 +1,19 @@
 public class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        if (nums == null) { return null; }
-        return permute(nums, nums.length - 1);
-    }
-    
-    private List<List<Integer>> permute(int[] nums, int end) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        
-        if (nums.length == 0 || end < 0) {
-            res.add(new ArrayList<Integer>());
-            return res;
-        }
-        List<List<Integer>> subResult = permute(nums, end - 1);
-        for (List<Integer> list : subResult) {
-            for (int i = 0; i <= list.size(); i++) {
-                List<Integer> newPerm = new ArrayList<Integer>(list);
-                newPerm.add(i, nums[end]);
-                res.add(newPerm);
+        List<List<Integer>> ret = new LinkedList<>();
+        if (nums == null || nums.length == 0) { return ret; }
+        ret.add(new LinkedList<>());
+        for (int n : nums) {
+            int size = ret.size();
+            for (int i = 0; i < size; i++) {
+                List<Integer> prevPerm = ret.remove(0);
+                for (int pos = 0; pos <= prevPerm.size(); pos++) {
+                    List<Integer> newPerm = new LinkedList<>(prevPerm);
+                    newPerm.add(pos, n);
+                    ret.add(newPerm);
+                }
             }
         }
-        return res;
+        return ret;
     }
 }
