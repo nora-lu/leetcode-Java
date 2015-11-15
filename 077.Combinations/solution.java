@@ -1,21 +1,19 @@
 public class Solution {
-    public List<List<Integer>> combine(int n, int k) {
-        if (k == 0 || n == 0 || k > n) return Collections.emptyList();
-        List<List<Integer>> combs = new ArrayList<>();
-        for (int i = 1; i <= n; i++) combs.add(Arrays.asList(i));
+    public List<List<Integer>> combine2(int n, int k) {
+        if (n == 0 || k == 0 || k > n) return Collections.emptyList();
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        for (int i = 1; i <= n + 1 - k; i++) res.add(Arrays.asList(i));
         for (int i = 2; i <= k; i++) {
-            List<List<Integer>> newCombs = new ArrayList<>();
-            for (int j = i; j <= n; j++) {
-                for (List<Integer> comb : combs) {
-                    if (comb.get(comb.size()-1) < j) {
-                        List<Integer> newComb = new ArrayList<>(comb);
-                        newComb.add(j);
-                        newCombs.add(newComb);
-                    }
+            List<List<Integer>> tmp = new ArrayList<List<Integer>>();
+            for (List<Integer> list : res) {
+                for (int m = list.get(list.size() - 1) + 1; m <= n - (k - i); m++) {
+                    List<Integer> newList = new ArrayList<Integer>(list);
+                    newList.add(m);
+                    tmp.add(newList);
                 }
             }
-            combs = newCombs;
+            res = tmp;
         }
-        return combs;
+        return res;
     }
 }
