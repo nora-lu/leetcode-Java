@@ -12,13 +12,11 @@ public class Solution {
             res.add(list);
             return;
         }
-        else { // start is position where the element is fixed
-            for (int i = start; i < nums.length; i++) {
+        for (int i = start; i < nums.length; i++) {  // start is position where the element is fixed
                 swap(nums, i, start); 
                 permute(res, nums, start + 1);
                 swap(nums, i, start);
             }
-        }
     }
     
     private void swap(int[] a, int i, int j) {
