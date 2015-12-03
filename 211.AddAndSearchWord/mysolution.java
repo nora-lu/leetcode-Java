@@ -23,25 +23,24 @@ public class WordDictionary {
     return search(word, root);
   }
 
-  private boolean search(String word, TrieNode n) {
-    TrieNode tmp = n;
-    /**
-     * 注意这里的base case返回值
-     */
-    if (word == null || word.equals("")) { return tmp.isWord; }
-    for (int i = 0; i < word.length(); i++) {
-      char c = word.charAt(i);
-      if (c == '.') {
-        for (TrieNode t : tmp.children) {
-          if (t != null && search(word.substring(i + 1), t)) { return true; }
+  private boolean search(String word, TrieNode node) {
+        if (word == null) { return false; }
+        /**
+         * 注意这里的base case返回值
+         */
+        if (word.isEmpty()) { return node.isWord; }
+
+        char first = word.charAt(0);
+        if (first == '.') {
+            for (TrieNode n : node.children) {
+                if (n != null && search(word.substring(1), n)) { return true; }
+            }
+        } else {
+            if (node.children[first - 'a'] == null) { return false; }
+            else { return search(word.substring(1), node.children[first - 'a']); }
         }
-      } else {
-        if (tmp.children[c - 'a'] == null) { return false; }
-        return search(word.substring(i + 1), tmp.children[c - 'a']);
-      }
+        return false;
     }
-    return false;
-  }
 }
 
 class TrieNode {
