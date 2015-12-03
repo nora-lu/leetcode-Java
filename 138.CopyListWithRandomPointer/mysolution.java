@@ -18,20 +18,16 @@ public class Solution {
         Map<RandomListNode, RandomListNode> map = new HashMap<>();
         
         // copy nodes with only labels
-        RandomListNode copy = head;
-        while (copy != null) {
-            RandomListNode node = new RandomListNode(copy.label);
-            map.put(copy, node);
-            copy = copy.next;
+        for (RandomListNode tmp = head; tmp != null; tmp = tmp.next) {
+            if (map.containsKey(tmp)) { break; }
+            map.put(tmp, new RandomListNode(tmp.label));
         }
         
         // copy pointers
-        copy = head;
-        while (copy != null) {
-            RandomListNode node = map.get(copy);
-            node.next = map.get(copy.next);
-            node.random = map.get(copy.random);
-            copy = copy.next;
+        for (RandomListNode tmp = head; tmp != null; tmp = tmp.next) {
+            RandomListNode copy = map.get(tmp);
+            copy.next = map.get(tmp.next);
+            copy.random = map.get(tmp.random);
         }
         
         return map.get(head);
