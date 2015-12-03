@@ -20,7 +20,6 @@ Return 6.  */
  * }
  */
 public class Solution {
-    public class Solution {
     public int maxPathSum(TreeNode root) {
         int[] max = new int[1];
         max[0] = Integer.MIN_VALUE;
@@ -35,5 +34,4 @@ public class Solution {
         max[0] = Math.max(max[0], left + right + node.val);  // once goes down in right subtree, cannot be passed to parent
         return Math.max(left, right) + node.val; 
     }
-}
 }
