@@ -16,32 +16,28 @@
  * }
  */
 public class Solution {
-    private ListNode cur;
-    
     public TreeNode sortedListToBST(ListNode head) {
-        cur = head;
-        int len = findSize(head);
-        return sortedListToBST(0, len - 1);
+        ListNode[] cur = new ListNode[1];
+        cur[0] = head;
+        
+        int len = size(head);
+        return convert(0, len - 1, cur);
     }
     
-    private int findSize(ListNode head) {
-        int size = 0;
-        while (head != null) {
-            size++;
-            head = head.next;
-        }
-        return size;
-    }
-    
-    private TreeNode sortedListToBST(int start, int end) {
-        if (start > end) { return null; }   // already include the case when head is null
+    private TreeNode convert(int start, int end, ListNode[] cur) {
+        if (start > end) { return null; }
         int mid = start + (end - start) / 2;
-        TreeNode left = sortedListToBST(start, mid - 1);
-        TreeNode root = new TreeNode(cur.val);
+        TreeNode left = convert(start, mid - 1, cur);
+        TreeNode root = new TreeNode(cur[0].val);
+        cur[0] = cur[0].next;
         root.left = left;
-        cur = cur.next;
-        TreeNode right = sortedListToBST(mid + 1, end);
-        root.right = right;
+        root.right = convert(mid + 1, end, cur);
         return root;
+    }
+    
+    private int size(ListNode head) {
+        int size = 0;
+        for (ListNode tmp = head ; tmp != null; tmp = tmp.next) { size++; }
+        return size;
     }
 }
