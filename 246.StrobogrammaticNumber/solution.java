@@ -10,7 +10,7 @@ public class Solution {
             }
         };
         int len = num.length();
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < len / 2 + 1; i++) {
             char c = num.charAt(i);
             if (!pairs.containsKey(c)) { return false; }
             if (pairs.get(c) != num.charAt(len - i - 1)) { return false; }
